@@ -33,7 +33,7 @@ const server = new ApolloServer({
     // Install a landing page plugin based on NODE_ENV
     process.env.NODE_ENV === 'production'
       ? ApolloServerPluginLandingPageProductionDefault({
-          footer: false,
+          footer: true,
         })
       : ApolloServerPluginLandingPageLocalDefault({ footer: false }),
   ],
