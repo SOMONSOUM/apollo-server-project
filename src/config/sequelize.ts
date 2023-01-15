@@ -3,7 +3,9 @@ import { config } from 'dotenv'
 
 config()
 const sequelize = new Sequelize(
-  `mysql://sammy:Anna@128#04$2023@rakphen24.com/project_apollo_server`,
+  'project_apollo_server',
+  'sammy',
+  'Anna@128#04$2023',
   {
     host: `${process.env.HOST}`,
     dialect: 'mysql',
