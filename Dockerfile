@@ -28,9 +28,9 @@ ENV API_VARIABLE=$API_VARIABLE
 
 WORKDIR /usr/src/app
 COPY package*.json ./
-RUN npm install
+RUN yarn install
 COPY . .
-RUN npm run build
+RUN yarn build
 
 EXPOSE ${PORT}
-CMD [ "npm", "start" ]
+CMD [ "yarn", "start" ]
