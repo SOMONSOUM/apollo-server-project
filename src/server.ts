@@ -28,10 +28,12 @@ const typeBaseDefs = gql`
 const server = new ApolloServer({
   typeDefs: [typeBaseDefs, user, category, content],
   resolvers: _.merge({}, UserResolver, CategoryResolver, ContentResolver),
+  introspection: process.env.APPLICATION_ENV !== "production",
   plugins: [
     // Install a landing page plugin based on NODE_ENV
     process.env.NODE_ENV === 'production'
       ? ApolloServerPluginLandingPageProductionDefault({
+        embed: ,
           footer: false,
         })
       : ApolloServerPluginLandingPageLocalDefault({ footer: false }),
