@@ -28,7 +28,7 @@ ENV API_VARIABLE=$API_VARIABLE
 
 WORKDIR /usr/src/app
 COPY package*.json ./
-RUN yarn install
+RUN yarn install --force
 COPY . .
 RUN yarn build
 
