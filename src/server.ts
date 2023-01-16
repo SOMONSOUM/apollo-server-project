@@ -17,6 +17,7 @@ import ContentResolver from './graphql/resolver/ContentResolver'
 import {
   ApolloServerPluginLandingPageLocalDefault,
   ApolloServerPluginLandingPageProductionDefault,
+  ApolloServerPluginLandingPageGraphQLPlayground,
 } from 'apollo-server-core'
 
 dotenv.config()
@@ -32,9 +33,7 @@ const server = new ApolloServer({
   plugins: [
     // Install a landing page plugin based on NODE_ENV
     process.env.NODE_ENV === 'production'
-      ? ApolloServerPluginLandingPageProductionDefault({
-          footer: true,
-        })
+      ? ApolloServerPluginLandingPageGraphQLPlayground()
       : ApolloServerPluginLandingPageLocalDefault({ footer: false }),
   ],
   context: async ({ req }): Promise<Context> => {
